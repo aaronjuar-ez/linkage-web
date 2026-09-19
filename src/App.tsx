@@ -206,9 +206,15 @@ export default function App() {
         </section>
         <aside className="panel" aria-label="Study configuration">
           <div className="flex items-center gap-2 border-b border-[#34393a] px-5 py-4"><SlidersHorizontal size={16} className="text-lime" /><h2 className="text-sm font-medium">Study setup</h2></div>
-          <div className="flex px-5" role="tablist" aria-label="Configuration sections">
-            <button id="setup-tab" className="tab" role="tab" aria-selected={tab === 'setup'} aria-controls="setup-panel" onClick={() => setTab('setup')}>Setup</button>
-            <button id="pivots-tab" className="tab" role="tab" aria-selected={tab === 'pivots'} aria-controls="pivots-panel" onClick={() => setTab('pivots')}>Coordinates</button>
+          <div className="flex px-5" role="tablist" aria-label="Configuration sections" onKeyDown={e => {
+            if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return
+            e.preventDefault()
+            const next = e.key === 'Home' ? 'setup' : e.key === 'End' ? 'pivots' : tab === 'setup' ? 'pivots' : 'setup'
+            setTab(next)
+            document.getElementById(`${next}-tab`)?.focus()
+          }}>
+            <button id="setup-tab" className="tab" role="tab" tabIndex={tab === 'setup' ? 0 : -1} aria-selected={tab === 'setup'} aria-controls="setup-panel" onClick={() => setTab('setup')}>Setup</button>
+            <button id="pivots-tab" className="tab" role="tab" tabIndex={tab === 'pivots' ? 0 : -1} aria-selected={tab === 'pivots'} aria-controls="pivots-panel" onClick={() => setTab('pivots')}>Coordinates</button>
           </div>
           {tab === 'setup' ? <div id="setup-panel" role="tabpanel" aria-labelledby="setup-tab" className="p-5">
             <label className="field-label" htmlFor="topology"><span className="mr-2 text-[#718165]">01</span>Suspension layout</label>

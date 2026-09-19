@@ -162,13 +162,13 @@ export function Viewer(props: Props) {
       <span className="rounded border border-[#414a42] bg-[#202720]/95 px-2.5 py-1.5 text-lime">{image ? 'YOUR REFERENCE' : 'DEMO GEOMETRY'}</span>
       <span className="rounded border border-[#3c4444] bg-[#1a2020]/95 px-2.5 py-1.5 text-[#c1c9c3]">SIDE VIEW</span>
     </div>
-    <div className="absolute bottom-4 right-4 flex gap-1 rounded-lg border border-[#434a46] bg-[#1b2120]/95 p-1">
+    <div className="absolute bottom-10 right-4 flex gap-1 rounded-lg border border-[#434a46] bg-[#1b2120]/95 p-1 sm:bottom-4">
       <button className="icon-btn" aria-label="Zoom out" onClick={() => zoom(1.25)}><Minus size={16} /></button>
       <span className="number self-center px-1 text-[10px]">{Math.round(DEFAULT_VIEW.width / view.width * 100)}%</span>
       <button className="icon-btn" aria-label="Zoom in" onClick={() => zoom(.8)}><Plus size={16} /></button>
       <span className="mx-1 w-px bg-[#424944]" />
       <button className="icon-btn" aria-label="Reset view" onClick={() => setView(DEFAULT_VIEW)}><Focus size={16} /></button>
     </div>
-    <p className="absolute bottom-4 left-4 max-w-[48%] text-[10px] text-[#b0bbb3]">{calibrating ? 'Place 1 & 2 on opposite rim bead seats' : props.moving ? 'Return to 0% to edit pins' : 'Drag pins to edit · drag canvas to pan'}</p>
+    <p className="absolute bottom-3 left-4 right-4 text-[10px] text-[#b0bbb3] sm:bottom-4 sm:right-auto sm:max-w-[48%]">{calibrating ? 'Place 1 & 2 on opposite rim bead seats' : props.moving ? 'Return to 0% to edit pins' : 'Drag pins to edit · drag canvas to pan'}</p>
   </div>
 }
