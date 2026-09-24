@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lime: #d4ed83;
+  --color-panel: #1c1f20;
+}
+:root {
+  font-family: Inter, "Segoe UI", sans-serif;
+  color: #f0f1ed;
+  background: #121516;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input, select { font: inherit; }
+button, select, input[type="range"], summary { cursor: pointer; }
+button { transition: background .15s, color .15s, border-color .15s; }
+button:disabled { opacity: .4; cursor: not-allowed; }
+:focus-visible { outline: 2px solid #d4ed83; outline-offset: 4px; }
+input[type="range"] { accent-color: #d4ed83; width: 100%; height: 20px; }
+input[type="number"], select {
+  background: #141718; border: 1px solid #414647; border-radius: 7px;
+  padding: 9px 10px; color: #f0f1ed; min-width: 0; width: 100%;
+}
+input[type="number"] { font-variant-numeric: tabular-nums; }
+input:invalid { border-color: #efad77; }
+svg text { user-select: none; }
+.muted { color: #a9b0ad; }
+.eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: .14em; font-weight: 650; color: #a9b0ad; }
+.panel { border: 1px solid #34393a; border-radius: 14px; background: #1c1f20; overflow: hidden; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #414647; border-radius: 8px; padding: 10px 14px; font-size: 12px; font-weight: 550; background: #232728; }
+.btn:hover:not(:disabled) { background: #303637; border-color: #69736e; }
+.btn.primary { background: #d4ed83; color: #202617; border-color: #d4ed83; }
+.btn.primary:hover:not(:disabled) { background: #e0f6a0; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 6px; }
+.icon-btn:hover { background: #343a39; }
+.tab { flex: 1; padding: 13px 4px; font-size: 12px; color: #a9b0ad; border-bottom: 2px solid transparent; }
+.tab[aria-selected="true"] { color: #d4ed83; border-bottom-color: #d4ed83; }
+.field-label { display: block; font-size: 12px; color: #c9ceca; margin-bottom: 7px; }
+.number { font-family: "SFMono-Regular", Consolas, monospace; font-variant-numeric: tabular-nums; }
+.pin { cursor: grab; outline: none; }
+.pin:active { cursor: grabbing; }
+.pin:focus-visible .pin-focus { opacity: 1; }
+.scene { touch-action: none; cursor: grab; }
+.scene:active { cursor: grabbing; }
+.recharts-wrapper:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
